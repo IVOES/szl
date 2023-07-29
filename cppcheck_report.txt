@@ -1,0 +1,287 @@
+src/libszl.c:1350:2: error: Common realloc mistake: 'dbuf' nulled but not freed upon failure [memleakOnRealloc]
+ dbuf = (char *)realloc(dbuf, nlen + 1);
+ ^
+src/libszl.c:1403:2: error: Common realloc mistake: 'items' nulled but not freed upon failure [memleakOnRealloc]
+ items = (struct szl_obj **)realloc(items,
+ ^
+src/libszl.c:1526:2: error: Common realloc mistake: 'di' nulled but not freed upon failure [memleakOnRealloc]
+ di = (struct szl_obj **)realloc(di,
+ ^
+src/libszl.c:68:6: warning: Either the condition '!interp->args' is redundant or there is possible null pointer dereference: obj. [nullPointerRedundantCheck]
+ if (obj->del)
+     ^
+src/libszl.c:1857:6: note: Assuming that condition '!interp->args' is not redundant
+ if (!interp->args) {
+     ^
+src/libszl.c:1858:18: note: Calling function 'szl_free', 1st argument 'interp->args' value is 0
+  szl_free(interp->args);
+                 ^
+src/libszl.c:68:6: note: Null pointer dereference
+ if (obj->del)
+     ^
+src/libszl.c:89:7: style: The scope of the variable 'odelim' can be reduced. [variableScope]
+ char odelim, cdelim = '\0';
+      ^
+src/libszl.c:90:6: style: The scope of the variable 'nodelim' can be reduced. [variableScope]
+ int nodelim = 0, ncdelim = 0;
+     ^
+src/libszl.c:90:19: style: The scope of the variable 'ncdelim' can be reduced. [variableScope]
+ int nodelim = 0, ncdelim = 0;
+                  ^
+src/libszl.c:640:11: style: The scope of the variable 'i' can be reduced. [variableScope]
+ int len, i;
+          ^
+src/libszl.c:1202:27: style: The scope of the variable 'arg' can be reduced. [variableScope]
+ struct szl_obj **items, *arg;
+                          ^
+src/libszl.c:1232:14: style: The scope of the variable 'i' can be reduced. [variableScope]
+ size_t len, i;
+             ^
+src/libszl.c:1672:14: style: The scope of the variable 'i' can be reduced. [variableScope]
+ size_t len, i;
+             ^
+src/libszl.c:2111:18: style: The scope of the variable 'obj' can be reduced. [variableScope]
+ struct szl_obj *obj;
+                 ^
+src/libszl.c:2158:18: style: The scope of the variable 'nameo' can be reduced. [variableScope]
+ struct szl_obj *nameo;
+                 ^
+src/libszl.c:2159:6: style: The scope of the variable 'ret' can be reduced. [variableScope]
+ int ret;
+     ^
+src/libszl.c:2708:18: style: The scope of the variable 'obj' can be reduced. [variableScope]
+ struct szl_obj *obj;
+                 ^
+src/libszl.c:2748:18: style: The scope of the variable 'obj' can be reduced. [variableScope]
+ struct szl_obj *obj;
+                 ^
+src/libszl.c:2750:40: style: The scope of the variable 'more' can be reduced. [variableScope]
+ ssize_t len = SZL_STREAM_BUFSIZ, tot, more;
+                                       ^
+src/libszl.c:2827:30: style: The scope of the variable 'pos' can be reduced. [variableScope]
+ unsigned char *buf = NULL, *pos, *mbuf;
+                             ^
+src/libszl.c:2829:10: style: The scope of the variable 'out' can be reduced. [variableScope]
+ ssize_t out;
+         ^
+src/libszl.c:2880:15: style: The scope of the variable 'chunk' can be reduced. [variableScope]
+ ssize_t out, chunk;
+              ^
+src/libszl.c:3015:18: style: The scope of the variable 'csock' can be reduced. [variableScope]
+ struct szl_obj *csock, *list;
+                 ^
+src/libszl.c:988:1: style:inconclusive: Function 'szl_new_wstr' argument 2 names different: declaration 'ws' definition 'buf'. [funcArgNamesDifferent]
+SZL_NEW_STR(szl_new_wstr, wchar_t, SZL_TYPE_WSTR, w, wlen, L'\0', wcslen)
+^
+src/szl.h:589:47: note: Function 'szl_new_wstr' argument 2 names different: declaration 'ws' definition 'buf'.
+                             const szl_wchar *ws,
+                                              ^
+src/libszl.c:988:1: note: Function 'szl_new_wstr' argument 2 names different: declaration 'ws' definition 'buf'.
+SZL_NEW_STR(szl_new_wstr, wchar_t, SZL_TYPE_WSTR, w, wlen, L'\0', wcslen)
+^
+src/libszl.c:1333:36: style:inconclusive: Function 'szl_str_append_str' argument 3 names different: declaration 'buf' definition 'src'. [funcArgNamesDifferent]
+                       const char *src,
+                                   ^
+src/szl.h:795:36: note: Function 'szl_str_append_str' argument 3 names different: declaration 'buf' definition 'src'.
+                       const char *buf,
+                                   ^
+src/libszl.c:1333:36: note: Function 'szl_str_append_str' argument 3 names different: declaration 'buf' definition 'src'.
+                       const char *src,
+                                   ^
+src/libszl.c:154:32: style: Local variable 'start' shadows outer argument [shadowArgument]
+ for (*start = s; szl_isspace(*start[0]); ++*start);
+                               ^
+src/libszl.c:152:32: note: Shadowed declaration
+void szl_ltrim(char *s, char **start)
+                               ^
+src/libszl.c:154:32: note: Shadow variable
+ for (*start = s; szl_isspace(*start[0]); ++*start);
+                               ^
+src/libszl.c:211:16: style: Local variable 'items' shadows outer argument [shadowArgument]
+     szl_free(*items[i]);
+               ^
+src/libszl.c:186:33: note: Shadowed declaration
+              struct szl_obj ***items,
+                                ^
+src/libszl.c:211:16: note: Shadow variable
+     szl_free(*items[i]);
+               ^
+src/libszl.c:154:46: error: Uninitialized variable: start [uninitvar]
+ for (*start = s; szl_isspace(*start[0]); ++*start);
+                                             ^
+src/libszl.c:2551:15: style: Variable 'init' is not assigned a value. [unassignedVariable]
+ szl_ext_init init;
+              ^
+src/szl_ffi.c:536:18: warning: Either the condition '!s2' is redundant or there is possible null pointer dereference: s2. [nullPointerRedundantCheck]
+   slen = strlen(s2);
+                 ^
+src/szl_ffi.c:537:8: note: Assuming that condition '!s2' is not redundant
+   if (!s2)
+       ^
+src/szl_ffi.c:536:18: note: Null pointer dereference
+   slen = strlen(s2);
+                 ^
+src/szl_ffi.c:814:18: style: The scope of the variable 'j' can be reduced. [variableScope]
+ unsigned int i, j;
+                 ^
+src/szl_ffi.c:1025:15: style: The scope of the variable 'i' can be reduced. [variableScope]
+ unsigned int i, j;
+              ^
+src/szl_ffi.c:1025:18: style: The scope of the variable 'j' can be reduced. [variableScope]
+ unsigned int i, j;
+                 ^
+src/szl_ffi.c:1095:15: style: The scope of the variable 'i' can be reduced. [variableScope]
+ unsigned int i, j;
+              ^
+src/szl_ffi.c:1095:18: style: The scope of the variable 'j' can be reduced. [variableScope]
+ unsigned int i, j;
+                 ^
+src/szl_file.c:199:10: style: The scope of the variable 'err' can be reduced. [variableScope]
+ int fd, err;
+         ^
+src/szl_io.c:70:20: style: The scope of the variable 'chunk' can be reduced. [variableScope]
+ size_t total = 0, chunk;
+                   ^
+src/szl_signal.c:52:6: style: The scope of the variable 'outc' can be reduced. [variableScope]
+ int outc;
+     ^
+src/szl_socket.c:207:10: style: The scope of the variable 'err' can be reduced. [variableScope]
+ int fd, err;
+         ^
+src/szl_socket.c:387:10: style: The scope of the variable 'fl' can be reduced. [variableScope]
+ int fd, fl, err;
+         ^
+src/szl_socket.c:574:10: style: The scope of the variable 'err' can be reduced. [variableScope]
+ int fd, err;
+         ^
+src/szl_str.c:125:14: style: The scope of the variable 'pos' can be reduced. [variableScope]
+ const char *pos, *oc, *end;
+             ^
+src/szl_str.c:125:25: style: The scope of the variable 'end' can be reduced. [variableScope]
+ const char *pos, *oc, *end;
+                        ^
+src/szl_str.c:257:20: style: The scope of the variable 'tok' can be reduced. [variableScope]
+ char *s, *delim, *tok, *next;
+                   ^
+src/szl_str.c:258:21: style: The scope of the variable 'i' can be reduced. [variableScope]
+ size_t slen, dlen, i;
+                    ^
+src/szl_str.c:462:20: style: The scope of the variable 'plen' can be reduced. [variableScope]
+ size_t flen, len, plen;
+                   ^
+src/szl_szl.c:81:15: style: The scope of the variable 'i' can be reduced. [variableScope]
+ size_t argc, i;
+              ^
+src/szl_tls.c:150:6: style: The scope of the variable 'err' can be reduced. [variableScope]
+ int err;
+     ^
+src/szlsh.c:33:21: style: The scope of the variable 'interp' can be reduced. [variableScope]
+ struct szl_interp *interp;
+                    ^
+src/szl_tls.c:247:0: style: The function 'szl_del_tls' is never used. [unusedFunction]
+
+^
+src/szl_archive.c:281:0: style: The function 'szl_init_archive' is never used. [unusedFunction]
+
+^
+src/szl_curl.c:251:0: style: The function 'szl_init_curl' is never used. [unusedFunction]
+
+^
+src/szl_dict.c:98:0: style: The function 'szl_init_dict' is never used. [unusedFunction]
+
+^
+src/szl_dir.c:186:0: style: The function 'szl_init_dir' is never used. [unusedFunction]
+
+^
+src/szl_ed25519.c:162:0: style: The function 'szl_init_ed25519' is never used. [unusedFunction]
+
+^
+src/szl_env.c:60:0: style: The function 'szl_init_env' is never used. [unusedFunction]
+
+^
+src/szl_exc.c:151:0: style: The function 'szl_init_exc' is never used. [unusedFunction]
+
+^
+src/szl_exec.c:243:0: style: The function 'szl_init_exec' is never used. [unusedFunction]
+
+^
+src/szl_ext.c:77:0: style: The function 'szl_init_ext' is never used. [unusedFunction]
+
+^
+src/szl_ffi.c:1295:0: style: The function 'szl_init_ffi' is never used. [unusedFunction]
+
+^
+src/szl_file.c:262:0: style: The function 'szl_init_file' is never used. [unusedFunction]
+
+^
+src/szl_io.c:347:0: style: The function 'szl_init_io' is never used. [unusedFunction]
+
+^
+src/szl_linenoise.c:140:0: style: The function 'szl_init_linenoise' is never used. [unusedFunction]
+
+^
+src/szl_list.c:410:0: style: The function 'szl_init_list' is never used. [unusedFunction]
+
+^
+src/szl_logic.c:342:0: style: The function 'szl_init_logic' is never used. [unusedFunction]
+
+^
+src/szl_loop.c:320:0: style: The function 'szl_init_loop' is never used. [unusedFunction]
+
+^
+src/szl_lzfse.c:147:0: style: The function 'szl_init_lzfse' is never used. [unusedFunction]
+
+^
+src/szl_math.c:126:0: style: The function 'szl_init_math' is never used. [unusedFunction]
+
+^
+src/szl_null.c:61:0: style: The function 'szl_init_null' is never used. [unusedFunction]
+
+^
+src/szl_obj.c:196:0: style: The function 'szl_init_obj' is never used. [unusedFunction]
+
+^
+src/szl_path.c:147:0: style: The function 'szl_init_path' is never used. [unusedFunction]
+
+^
+src/szl_poll.c:244:0: style: The function 'szl_init_poll' is never used. [unusedFunction]
+
+^
+src/szl_proc.c:165:0: style: The function 'szl_init_proc' is never used. [unusedFunction]
+
+^
+src/szl_signal.c:255:0: style: The function 'szl_init_signal' is never used. [unusedFunction]
+
+^
+src/szl_socket.c:714:0: style: The function 'szl_init_socket' is never used. [unusedFunction]
+
+^
+src/szl_str.c:690:0: style: The function 'szl_init_str' is never used. [unusedFunction]
+
+^
+src/szl_syscall.c:77:0: style: The function 'szl_init_syscall' is never used. [unusedFunction]
+
+^
+src/szl_szl.c:163:0: style: The function 'szl_init_szl' is never used. [unusedFunction]
+
+^
+src/szl_time.c:189:0: style: The function 'szl_init_time' is never used. [unusedFunction]
+
+^
+src/szl_timer.c:153:0: style: The function 'szl_init_timer' is never used. [unusedFunction]
+
+^
+src/szl_tls.c:281:0: style: The function 'szl_init_tls' is never used. [unusedFunction]
+
+^
+src/szl_zlib.c:317:0: style: The function 'szl_init_zlib' is never used. [unusedFunction]
+
+^
+src/szl_zstd.c:128:0: style: The function 'szl_init_zstd' is never used. [unusedFunction]
+
+^
+src/libszl.c:2252:0: style: The function 'szl_parse_stmts' is never used. [unusedFunction]
+
+^
+nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
+
